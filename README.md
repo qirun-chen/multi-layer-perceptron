@@ -1,4 +1,4 @@
-# multi-layer-perceptron
+# Multi-layer Perceptron
 
 ## The ability to learn XOR function
 <img width="400" alt="portfolio_view" src="https://github.com/OopsRyan/multi-layer-perceptron/blob/master/img/xor.jpg">
