@@ -27,7 +27,7 @@ def to_character(n):
 
 dataset = list()
 # Read data from csv
-with open('./letter-recognition.csv', newline='') as data_file:
+with open('./data/letter-recognition.csv', newline='') as data_file:
     reader = csv.reader(data_file, delimiter=',')
     for row in reader:
         # Map the character to the integer number
