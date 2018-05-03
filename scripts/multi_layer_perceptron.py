@@ -140,13 +140,13 @@ class MLP:
         :return: self
         """
         for e in range(1, self.max_epochs):
-            cost = 0.
+            loss = 0.
             for j, row in enumerate(X):
                 # feed-forward the inputs to the output layer
                 o = self.__forwards(row)
                 # Accumulate the error of each example computed
-                #   by the loss function to get the total cost
-                cost += self.loss_func(o, y[j])
+                #   by the loss function to get the total loss
+                loss += self.loss_func(o, y[j])
                 # Back-propagate the error signal computed
                 #   according to the given expected output
                 self.__backwards(y[j])
@@ -161,12 +161,12 @@ class MLP:
                     if pre[k] == np.argmax(y[k]):
                         acc += 1
                 if e % self.verbose == 0:
-                    print('epoch %d | error : %.3f | accuracy : %.3f' %
-                          (e, cost/len(X), acc/len(X)))
+                    print('epoch %d | cost : %.3f | accuracy : %.3f' %
+                          (e, loss/len(X), acc/len(X)))
             else:
                 if e % self.verbose == 0:
-                    # Regression - print the cost
-                    print('epoch %d | error : %.3f' % (e, cost/(len(X))))
+                    # Regression - print the cost (average loss on training dataset)
+                    print('epoch %d | cost : %.3f' % (e, loss/(len(X))))
 
         return self
 
