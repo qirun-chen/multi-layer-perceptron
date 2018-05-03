@@ -145,7 +145,7 @@ class MLP:
                 # feed-forward the inputs to the output layer
                 o = self.__forwards(row)
                 # Accumulate the error of each example computed
-                #   by the loss function to get the cost
+                #   by the loss function to get the total cost
                 cost += self.loss_func(o, y[j])
                 # Back-propagate the error signal computed
                 #   according to the given expected output
@@ -165,7 +165,7 @@ class MLP:
                           (e, cost/len(X), acc/len(X)))
             else:
                 if e % self.verbose == 0:
-                    # Regression - print the error
+                    # Regression - print the cost
                     print('epoch %d | error : %.3f' % (e, cost/(len(X))))
 
         return self
